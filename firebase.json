@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/material-demo",
+    "public": "dist/tasker-todo",
     "ignore": [
       "firebase.json",
       "**/.*",
