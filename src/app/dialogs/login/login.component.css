@@ -1,0 +1,13 @@
+mat-form-field{
+  width: 200px;
+}
+
+.login-btn{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+a{
+  color: blue;
+  text-decoration: none;
+}

@@ -1,0 +1,20 @@
+.todo-tasks{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-checkbox{
+  padding: 8px;
+}
+mat-list-item{
+  border: 0.8px solid rgb(18, 88, 179);
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.create-date
+{
+  color: palevioletred;
+}

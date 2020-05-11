@@ -1,0 +1,23 @@
+.todo-tasks{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.task{
+  text-decoration: line-through;
+}
+mat-list-item{
+  border: 0.8px solid rgb(18, 88, 179);
+  border-radius: 20px;
+  margin: 5px;
+}
+.no-data{
+  color: royalblue;
+  margin-top: 50%;
+}
+.create-date
+{
+  color: chocolate;
+}

@@ -1,0 +1,54 @@
+<section style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+  <h3 mat-dialog-title>Task Detail</h3>
+  <mat-dialog-content>
+    <span>
+      <p><strong>Task : </strong>
+        {{ todoData.task }}
+      </p>
+    </span>
+    <span>
+      <p><strong>Completed : </strong>
+      {{ todoData.completed ? 'Yes' : 'No' }}
+      </p>
+    </span>
+    <span *ngIf="todoData.addedAgain">
+      <p>
+        <strong>Added Again : </strong>
+          {{ todoData.addedAgain ? 'Yes' : 'No' | date: 'medium' }}
+      </p>
+    </span>
+    <span *ngIf="todoData.addedAgainDate">
+      <p>
+        <strong>Added Again On : </strong>
+          {{ todoData.addedAgainDate | date: 'medium' }}
+      </p>
+    </span>
+    <span *ngIf="todoData.modified">
+      <p>
+        <strong>Edited : </strong>
+          {{ todoData.modified ? 'Yes' : 'No' | date: 'medium' }}
+      </p>
+    </span>
+    <span *ngIf="todoData.modified">
+      <p>
+        <strong>Edited On : </strong>
+          {{ todoData.modificationDate | date: 'medium' }}
+      </p>
+    </span>
+    <span>
+      <p>
+        <strong>Created On : </strong>
+          {{ todoData.creationDate | date: 'medium' }}
+      </p>
+    </span>
+    <span *ngIf="todoData.completeDate">
+      <p>
+        <strong>Completed On : </strong>
+          {{ todoData.completeDate | date: 'medium' }}
+      </p>
+    </span>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="onClose()">Close</button>
+  </mat-dialog-actions>
+</section>

@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+  <span class="menu-btn">
+    <button mat-icon-button
+    (click)="sidenav.toggle()"
+    >
+      <mat-icon class="menu-icon">menu</mat-icon>
+    </button>
+  </span>
+  <span class="app-name">
+    <a routerLink="/">Tasker</a>
+  </span>
+  <div class="nav-links">
+    <a routerLink="/contact">Contact</a>
+    <a routerLink="/about">About</a>
+  </div>
+  <span class="login-btn">
+    <button mat-icon-button [mat-menu-trigger-for]="loginMenu"
+     matTooltip="Click Here for Login and Signup"
+    >
+      <mat-icon class="login-icon">account_circle</mat-icon>
+    </button>
+    <mat-menu #loginMenu="matMenu">
+      <button mat-menu-item routerLink="/login">
+        <mat-icon>face</mat-icon>  Login
+      </button>
+      <button mat-menu-item routerLink="/signup">
+       <mat-icon>account_box</mat-icon> SignUp
+      </button>
+    </mat-menu>
+  </span>
+</mat-toolbar>

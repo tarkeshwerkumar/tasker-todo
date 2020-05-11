@@ -1,0 +1,42 @@
+.nav-links a
+{
+  padding-left: 8px;
+  margin-left: 20px;
+}
+.menu-btn{
+  display: none;
+  outline: none;
+}
+.mat-button-focus-overlay {
+  background-color: transparent!important;
+}
+@media only screen and (max-width:600px)
+{
+  .menu-btn{
+    display: block;
+  }
+  .app-name{
+    margin-left: auto;
+  }
+  .nav-links{
+    display: none;
+  }
+}
+
+.login-btn{
+  margin-left: auto;
+}
+
+.menu-icon,.login-icon
+{
+  font-size: 36px;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover, a:active{
+  color: lightgray;
+}

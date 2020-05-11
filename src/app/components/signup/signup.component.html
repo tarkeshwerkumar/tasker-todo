@@ -1,0 +1,39 @@
+<section class="signup-form">
+  <h2>Register Here</h2>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="input-fields" fxLayout="column" fxLayoutAlign="center center">
+    <mat-form-field>
+      <input type="email"  matInput placeholder="Email" name="email" ngModel>
+      <mat-icon matSuffix color="primary">email</mat-icon>
+      <mat-hint>example@domain.com</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password"  matInput placeholder="Password" name="password" ngModel>
+      <mat-icon matSuffix color="primary">vpn_key</mat-icon>
+      <mat-hint>It will require at login page</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Select Option</mat-label>
+      <mat-select name="food" ngModel>
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date of Birth</mat-label>
+      <input type="text" matInput [matDatepicker]="picker" name="date-of-birth" ngModel>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center none">
+      <mat-radio-group ngModel name="gender">
+        <mat-radio-button value="male">Male</mat-radio-button>
+        <mat-radio-button value=female>Female</mat-radio-button>
+      </mat-radio-group>
+      <mat-checkbox ngModel name="terms">Agree on terms</mat-checkbox>
+    </div>
+    <button mat-raised-button color="primary">Register</button>
+  </form>
+</section>

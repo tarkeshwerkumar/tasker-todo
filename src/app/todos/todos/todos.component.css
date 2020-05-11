@@ -1,0 +1,23 @@
+.add-icon {
+  font-size: 20px;
+}
+
+.add-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  margin-top: 20px;
+}
+mat-card-content{
+  width: 100%;
+  padding: 20px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+mat-form-field{
+  width: 80%;
+}
