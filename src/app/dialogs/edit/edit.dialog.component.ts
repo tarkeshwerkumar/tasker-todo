@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { Task } from 'src/app/models/task';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TaskService } from 'src/app/services/task.service';
+import { TodoToastrService } from 'src/app/services/todo-toastr.service';
 
 @Component({
   selector: 'app-edit-dialog',
@@ -15,7 +16,8 @@ export class EditDialogComponent implements OnInit{
   constructor(
      private dialogRef: MatDialogRef<EditDialogComponent> ,
      @Inject(MAT_DIALOG_DATA) public todoData: Task,
-     private taskService: TaskService
+     private taskService: TaskService,
+     private todoToastrService: TodoToastrService
   ){}
 
   ngOnInit(){
@@ -31,6 +33,7 @@ export class EditDialogComponent implements OnInit{
     this.todoData.task = this.task;
     this.taskService.updateTask(this.todoData);
     this.dialogRef.close();
+    this.todoToastrService.successToast(this.todoData.task, 'Edited !');
   }
 
 }
