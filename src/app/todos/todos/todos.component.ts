@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Task } from "src/app/models/task";
-import { MatDialog } from "@angular/material/dialog";
-import { SuccessMessageDialogComponent } from "src/app/dialogs/success-message/success-message.component";
 import { TaskService } from 'src/app/services/task.service';
+import { TodoToastrService } from 'src/app/services/todo-toastr.service';
 
 @Component({
   selector: "app-todos",
@@ -11,11 +10,11 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class TodosComponent implements OnInit {
   constructor(
-    private dialog: MatDialog,
-    private taskService: TaskService
+    private taskService: TaskService,
+    private todoToastrService: TodoToastrService
   ) {}
 
-  task: string = "";
+  task: string = '';
 
   ngOnInit(): void {}
 
@@ -28,9 +27,7 @@ export class TodosComponent implements OnInit {
       modified: false,
     };
     this.taskService.addTask(todo);
-    this.dialog.open(SuccessMessageDialogComponent, {
-      data: "Task Added Successfully",
-    });
-    this.task = "";
+    this.todoToastrService.successToast(todo.task, 'Saved !');
+    this.task = '';
   }
 }

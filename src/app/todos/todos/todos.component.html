@@ -1,17 +1,19 @@
-<mat-card class="add-card">
-  <mat-card-title>
-   <h2 style="color: red;"> Add Your Task</h2>
-  </mat-card-title>
-  <mat-card-content>
-    <mat-form-field>
-      <input [(ngModel)]="task"
-      type="text" matInput placeholder="Enter Task" name="task" required/>
-      <mat-hint>Enter Valid Task</mat-hint>
-    </mat-form-field>
-    <button mat-fab color="primary" [disabled]="task === ''"
-    (click)="addTask()"
-    >
-      <mat-icon class="add-icon">add</mat-icon>
-    </button>
-  </mat-card-content>
-</mat-card>
+<section fxLayout="column" fxLayoutAlign="center center">
+  <mat-card class="add-card">
+    <mat-card-title>
+     <h2 class="card-header"> Add Your Task</h2>
+     <mat-divider></mat-divider>
+    </mat-card-title>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>What needs to be Done ?</mat-label>
+        <input [(ngModel)]="task"
+        type="text" matInput name="task" required/>
+        <mat-hint>Enter your Task </mat-hint>
+      </mat-form-field>
+      <button mat-fab color="primary" [disabled]="task === ''" (click)="addTask()">
+        <mat-icon class="add-icon">add</mat-icon>
+      </button>
+    </mat-card-content>
+  </mat-card>
+</section>
