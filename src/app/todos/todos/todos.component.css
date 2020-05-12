@@ -7,9 +7,28 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 400px;
+  width: 69%;
   margin-top: 20px;
 }
+
+.card-header{
+  color: orange;
+}
+
+@media only screen and (max-width: 600px){
+  .add-card{
+    width: 100%;
+  }
+}
+
+.mat-divider {
+  border-top-color: green;
+}
+
+input{
+  font-size: 18px;
+}
+
 mat-card-content{
   width: 100%;
   padding: 20px;

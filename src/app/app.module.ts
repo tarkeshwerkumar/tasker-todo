@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import * as Hammer from 'hammerjs';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -55,7 +56,8 @@ export class MyHammerConfig extends HammerGestureConfig{
     MaterialModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ToastrModule.forRoot()
   ],
   entryComponents:[
     DetailsDialogComponent,

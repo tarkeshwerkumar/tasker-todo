@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { TaskService } from 'src/app/services/task.service';
 import { Task } from 'src/app/models/task';
 import { Subscription } from 'rxjs';
+import { TodoToastrService } from 'src/app/services/todo-toastr.service';
 
 @Component({
   selector: 'app-todo-tasks',
@@ -23,7 +24,9 @@ export class TodoTasksComponent implements OnInit, OnDestroy {
   constructor(
     private dialog:MatDialog,
     private snackBar: MatSnackBar,
-    private taskService: TaskService) { }
+    private taskService: TaskService,
+    private todoToastrService: TodoToastrService
+    ) { }
 
   ngOnInit(): void {
     this.taskService.fetchAllTasks();
@@ -39,8 +42,8 @@ export class TodoTasksComponent implements OnInit, OnDestroy {
   taskCompleted(task:Task)
   {
      this.taskService.taskCompleted(task);
-     this.snackBar.open(task.task, "Completed",{duration: 2000});
-  }
+     this.todoToastrService.successToast(task.task, 'Completed !');
+    }
 
   showDetails(todo:Task){
     this.dialog.open(DetailsDialogComponent,{
