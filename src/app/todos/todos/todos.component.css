@@ -29,6 +29,15 @@ input{
   font-size: 18px;
 }
 
+form{
+  width: 100%;
+  padding: 20px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 mat-card-content{
   width: 100%;
   padding: 20px;

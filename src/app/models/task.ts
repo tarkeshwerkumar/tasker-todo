@@ -8,4 +8,5 @@ export interface Task {
   modificationDate?: Date;
   addedAgain?: boolean;
   addedAgainDate?: Date;
+  user?: string;
 }

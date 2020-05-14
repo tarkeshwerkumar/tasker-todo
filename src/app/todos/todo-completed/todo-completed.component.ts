@@ -6,7 +6,9 @@ import { AlertDialogComponent } from "src/app/dialogs/alert/alert.dialog.compone
 import { Task } from "src/app/models/task";
 import { TaskService } from "src/app/services/task.service";
 import { Subscription } from "rxjs";
-import { TodoToastrService } from 'src/app/services/todo-toastr.service';
+import { TodoToastrService } from "src/app/services/todo-toastr.service";
+import { User } from "src/app/models/User";
+import { AuthService } from "src/app/auth/services/auth.service";
 
 @Component({
   selector: "app-todo-completed",
@@ -20,18 +22,25 @@ export class TodoCompletedComponent implements OnInit {
   completedTodos: Todo[];
 
   completedTasks: Task[];
+  user: User;
+  noData: boolean = false;
 
   constructor(
     private dialog: MatDialog,
     private taskService: TaskService,
-    private todoToastrService: TodoToastrService
+    private todoToastrService: TodoToastrService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    this.taskService.fetchFinishedTasks();
+    this.user = this.authService.getUser();
+
+    this.taskService.fetchFinishedTasksByuser(this.user.email);
+
     this.tasksSubscription = this.taskService.finishedTasksChanged.subscribe(
       (response) => {
         this.completedTasks = response;
+        this.noData = this.completedTasks.length === 0 ? true : false;
       }
     );
   }

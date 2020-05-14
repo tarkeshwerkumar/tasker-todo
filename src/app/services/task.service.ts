@@ -14,7 +14,6 @@ export class TaskService {
   tasksChanged = new Subject<Task[]>();
   finishedTasksChanged = new Subject<Task[]>();
 
-
   completedTasksChanged = new Subject<Task[]>();
 
   private tasks: Task[];
@@ -22,13 +21,11 @@ export class TaskService {
 
   constructor(
     private db: AngularFirestore,
-    private utilService: UtilsService
+    private utilService: UtilsService,
     ) {}
 
-  fetchAllTasks() {
-    this.db
-      .collection("tasks")
-      .snapshotChanges()
+    fetchTasksByUser(email: string) {
+      this.db.collection('tasks', ref => ref.where('user', '==', email)).snapshotChanges()
       .pipe(
         map((docArray) => {
           return docArray.map((doc) => {
@@ -42,7 +39,8 @@ export class TaskService {
               completeDate: values?.completeDate?.toDate(),
               modificationDate: values?.modificationDate?.toDate(),
               modified: values?.modified,
-              addedAgainDate: values?.addedAgainDate?.toDate()
+              addedAgainDate: values?.addedAgainDate?.toDate(),
+              user: values?.user
             };
           });
         })
@@ -51,12 +49,10 @@ export class TaskService {
         this.tasks = response;
         this.tasksChanged.next([...this.tasks]);
       });
-  }
+    }
 
-  fetchFinishedTasks() {
-    this.db
-      .collection("finishedTasks")
-      .snapshotChanges()
+    fetchFinishedTasksByuser(email: string){
+      this.db.collection('finishedTasks', ref => ref.where('user', '==', email)).snapshotChanges()
       .pipe(
         map((docArray) => {
           return docArray.map((doc) => {
@@ -70,7 +66,8 @@ export class TaskService {
               modificationDate: values?.modificationDate?.toDate(),
               modified: values?.modified,
               addedAgain: values?.addedAgain,
-              addedAgainDate: values?.addedAgainDate?.toDate()
+              addedAgainDate: values?.addedAgainDate?.toDate(),
+              user: values?.user
             };
           });
         })
@@ -79,7 +76,7 @@ export class TaskService {
         this.finishedTasks = response;
         this.finishedTasksChanged.next([...this.finishedTasks]);
       });
-  }
+    }
 
   deleteFinishedTask(id: string){
     this.db.doc('finishedTasks/' + id).delete();

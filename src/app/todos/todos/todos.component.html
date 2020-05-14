@@ -5,15 +5,19 @@
      <mat-divider></mat-divider>
     </mat-card-title>
     <mat-card-content>
+      <form #f="ngForm" (ngSubmit)="addTask(f)">
       <mat-form-field>
         <mat-label>What needs to be Done ?</mat-label>
-        <input [(ngModel)]="task"
-        type="text" matInput name="task" required/>
+        <input ngModel
+        type="text" autocomplete="off"
+        matInput name="task" required/>
         <mat-hint>Enter your Task </mat-hint>
       </mat-form-field>
-      <button mat-fab color="primary" [disabled]="task === ''" (click)="addTask()">
+      <button mat-fab color="primary" type="submit"
+      [disabled]="f.invalid">
         <mat-icon class="add-icon">add</mat-icon>
       </button>
+    </form>
     </mat-card-content>
   </mat-card>
 </section>
