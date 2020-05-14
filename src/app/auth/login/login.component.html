@@ -10,9 +10,12 @@
       <input type="password" matInput name="password" placeholder="Password" ngModel>
       <mat-hint>Enter valid password</mat-hint>
     </mat-form-field>
-    <button class="login-btn"
-    mat-raised-button color="primary">Login
+    <button class="login-btn" (click)="login()"
+    mat-raised-button color="primary"
+    *ngIf="!isLoading"
+    >Login
   </button>
+  <mat-spinner [diameter]="55" *ngIf="isLoading"></mat-spinner>
     <p>Not Registred , <a routerLink="/signup">Sign Up Here</a> </p>
 
   </form>

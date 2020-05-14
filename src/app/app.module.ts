@@ -1,19 +1,17 @@
-import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material.module';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import * as Hammer from 'hammerjs';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
-import { SignupComponent } from './components/signup/signup.component';
-import { LoginComponent } from './dialogs/login/login.component';
 import { WelcomeComponent } from './componets/welcome/welcome.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { TodosComponent } from './todos/todos/todos.component';
@@ -24,20 +22,13 @@ import { AlertDialogComponent } from 'src/app/dialogs/alert/alert.dialog.compone
 import { EditDialogComponent } from './dialogs/edit/edit.dialog.component';
 import { SuccessMessageDialogComponent } from './dialogs/success-message/success-message.component';
 import { environment } from 'src/environments/environment';
-
-export class MyHammerConfig extends HammerGestureConfig{
-  overrides = <any>{
-    swipe: { direction: Hammer.DIRECTION_ALL },
-  };
-}
-
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SignupComponent,
-    LoginComponent,
     WelcomeComponent,
     PageNotFoundComponent,
     TodosComponent,
@@ -46,7 +37,9 @@ export class MyHammerConfig extends HammerGestureConfig{
     DetailsDialogComponent,
     AlertDialogComponent,
     EditDialogComponent,
-    SuccessMessageDialogComponent
+    SuccessMessageDialogComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +50,8 @@ export class MyHammerConfig extends HammerGestureConfig{
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AngularFireAuthModule
   ],
   entryComponents:[
     DetailsDialogComponent,
@@ -65,12 +59,7 @@ export class MyHammerConfig extends HammerGestureConfig{
     EditDialogComponent,
     SuccessMessageDialogComponent
   ],
-  providers: [
-    {
-      provide: HAMMER_GESTURE_CONFIG,
-      useClass: MyHammerConfig
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

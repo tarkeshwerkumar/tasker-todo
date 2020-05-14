@@ -20,11 +20,27 @@
       <mat-icon class="login-icon">account_circle</mat-icon>
     </button>
     <mat-menu #loginMenu="matMenu">
-      <button mat-menu-item routerLink="/login">
+      <button mat-menu-item routerLink="/login"
+      *ngIf="!isLoggedIn"
+      >
         <mat-icon>face</mat-icon>  Login
       </button>
-      <button mat-menu-item routerLink="/signup">
+      <button mat-menu-item routerLink="/signup"
+      *ngIf="!isLoggedIn"
+      >
        <mat-icon>account_box</mat-icon> SignUp
+      </button>
+      <button mat-menu-item routerLink="/login"
+      *ngIf="isLoggedIn"
+      (click)="showAccount()"
+      >
+        <mat-icon>face</mat-icon>  Account
+      </button>
+      <button mat-menu-item routerLink="/signup"
+      (click)="logout()"
+      *ngIf="isLoggedIn"
+      >
+       <mat-icon>account_box</mat-icon> Logout
       </button>
     </mat-menu>
   </span>

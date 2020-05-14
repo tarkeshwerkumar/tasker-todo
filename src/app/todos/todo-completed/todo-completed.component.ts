@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Todo } from "src/app/models/todo";
-import { TodoServiceService } from "src/app/services/todo-service.service";
 import { MatDialog } from "@angular/material/dialog";
 import { DetailsDialogComponent } from "../todo-tasks/details.component";
 import { AlertDialogComponent } from "src/app/dialogs/alert/alert.dialog.component";
@@ -23,7 +22,6 @@ export class TodoCompletedComponent implements OnInit {
   completedTasks: Task[];
 
   constructor(
-    private todoService: TodoServiceService,
     private dialog: MatDialog,
     private taskService: TaskService,
     private todoToastrService: TodoToastrService

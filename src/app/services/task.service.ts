@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
-import { TodoServiceService } from "./todo-service.service";
 import { map } from "rxjs/operators";
 import { Task } from "../models/task";
 import { Subject } from "rxjs";
