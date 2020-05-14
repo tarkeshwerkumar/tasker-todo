@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Todo } from '../models/todo';
 import { Task } from '../models/task';
 
 @Injectable({

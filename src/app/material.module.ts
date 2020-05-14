@@ -18,18 +18,20 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 @NgModule({
   imports: [MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatSelectModule,
     MatCheckboxModule, MatRadioModule, MatDatepickerModule, MatNativeDateModule, MatToolbarModule,
     MatSidenavModule, MatListModule, MatDialogModule, MatMenuModule, MatTooltipModule,MatTabsModule,
-    MatDividerModule, MatCardModule, MatSnackBarModule
+    MatDividerModule, MatCardModule, MatSnackBarModule, MatProgressSpinnerModule
   ],
   exports: [MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatSelectModule,
     MatCheckboxModule, MatRadioModule, MatDatepickerModule, MatNativeDateModule, MatToolbarModule,
     MatSidenavModule, MatListModule, MatDialogModule, MatMenuModule, MatTooltipModule,MatTabsModule,
-    MatDividerModule, MatCardModule, MatSnackBarModule
+    MatDividerModule, MatCardModule, MatSnackBarModule, MatProgressSpinnerModule
   ]
 })
 export class MaterialModule {}
