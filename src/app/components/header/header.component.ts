@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Subscription } from 'rxjs';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +11,13 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
-  //Subscriptions
+    //Subscriptions
   loggedInSubs: Subscription;
 
   @Input() sidenav:any;
 
   isLoggedIn: boolean = false;
+  user: User;
 
   constructor(private authService: AuthService) { }
 
@@ -23,6 +25,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.loggedInSubs = this.authService.authChanged.subscribe(result =>{
       this.isLoggedIn = result;
     });
+    this.user = this.authService.getUser();
   }
 
   ngOnDestroy(){
@@ -34,7 +37,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   showAccount(){
-    console.log(this.authService.getUser());
+    console.log(this.user);
+
   }
 
 }

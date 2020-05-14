@@ -1,4 +1,12 @@
-<section class="todo-tasks">
+<section class="center-content" *ngIf="showLoading">
+  <h2 style="color: sienna;">Getting Tasks...</h2>
+</section>
+
+<section class="center-content" *ngIf="tasks != undefined && tasks.length == 0">
+  <h2 style="color: green;">You have nothing to Do.</h2>
+</section>
+
+<section class="todo-tasks" *ngIf="!showLoading">
   <mat-list>
     <mat-list-item *ngFor="let todo of tasks">
       <button mat-icon-button matToolTip="Click if completed"

@@ -24,6 +24,9 @@ export class UtilsService {
     if(task.addedAgainDate === undefined){
       delete task.addedAgainDate;
     }
+    if(task.user === undefined){
+      delete task.user;
+    }
     return task;
   }
 
