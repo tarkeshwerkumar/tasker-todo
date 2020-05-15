@@ -3,4 +3,6 @@ export interface User{
   email?: string;
   name?: string;
   photoURL?: string;
+  createdAt?: string;
+  lastLoginAt?: string;
 }

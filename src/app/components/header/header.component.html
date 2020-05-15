@@ -10,7 +10,7 @@
     <a routerLink="/">Tasker</a>
   </span>
   <div class="nav-links">
-    <a routerLink="/contact">Contact</a>
+    <a routerLink="/features">Features</a>
     <a routerLink="/about">About</a>
   </div>
   <span class="login-btn">
@@ -25,14 +25,9 @@
       >
         <mat-icon>face</mat-icon>  Login
       </button>
-      <button mat-menu-item routerLink="/signup"
-      *ngIf="!isLoggedIn"
-      >
-       <mat-icon>account_box</mat-icon> SignUp
-      </button>
       <button mat-menu-item routerLink="/login"
       *ngIf="isLoggedIn"
-      (click)="showAccount()"
+      routerLink="/user"
       >
         <mat-icon>face</mat-icon>  Account
       </button>

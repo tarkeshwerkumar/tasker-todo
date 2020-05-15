@@ -1,0 +1,29 @@
+<section class="user" *ngIf="user">
+
+  <mat-card class="user-card" fxLayout="column" fxLayoutAlign="center center">
+    <img [src]="user.photoURL" alt="pic" class="user-pic">
+    <h2>{{ user.name }}</h2>
+    <mat-card-content>
+      <mat-divider></mat-divider>
+        <p>
+          <strong>
+            Email :
+          </strong>
+          {{ user.email }}
+        </p>
+        <p>
+          <strong>
+            Signed with Us :
+          </strong>
+          {{ user.createdAt | date: 'medium' }}
+        </p>
+        <p>
+          <strong>
+            Last Logged In :
+          </strong>
+          {{ user.lastLoginAt | date: 'medium' }}
+        </p>
+    </mat-card-content>
+  </mat-card>
+
+</section>

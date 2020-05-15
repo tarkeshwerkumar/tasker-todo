@@ -23,7 +23,8 @@ import { EditDialogComponent } from './dialogs/edit/edit.dialog.component';
 import { SuccessMessageDialogComponent } from './dialogs/success-message/success-message.component';
 import { environment } from 'src/environments/environment';
 import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
+import { AboutComponent } from './components/about/about.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SignupComponent } from './auth/signup/signup.component';
     EditDialogComponent,
     SuccessMessageDialogComponent,
     LoginComponent,
-    SignupComponent
+    AboutComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
