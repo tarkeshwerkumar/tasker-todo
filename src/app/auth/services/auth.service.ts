@@ -46,6 +46,7 @@ export class AuthService {
       })
       .catch((error) => {
         console.log("Auth failed !");
+        this.isLoadingChanged.next(false);
       });
   }
 
@@ -68,7 +69,9 @@ export class AuthService {
         uid : usr?.uid,
         email: usr?.email,
         name: usr?.displayName,
-        photoURL: usr?.photoURL
+        photoURL: usr?.photoURL,
+        createdAt: usr?.createdAt,
+        lastLoginAt: usr?.lastLoginAt
       };
       return user;
     }

@@ -38,7 +38,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   showAccount(){
     console.log(this.user);
-
   }
 
 }
